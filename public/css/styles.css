@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+/* Variables */
+:root {
+  --primary-color: #38A3A5;
+  --secondary-color: #028090;
+  --alternative-color: #80ED99;
+  --bg-color: #C7F9CC;
+
+  --font-1: 'Lato', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+
+}
+
+body {
+  font-family: var(--font-1);
+  font-size: 15px;
+}
+
+/*------------------Header ------------------ */
+header {
+  padding: 20px;
+  background-color: var(--primary-color);
+  color: white;  
+}
+
+/* -----------------Main------------------------ */
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20px;
+  padding: 20px 50px;
+}
+
+.chart-container {
+  display: grid;
+  gap: 20px;
+}
+
+.graph-container {
+  position: relative;
+  width: 500px;
+  height: 250px;
+}
+
+.info-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  color: white;
+  align-items: center;
+}
+
+.form {
+  display: inherit;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  gap: 20px;
+  padding: 40px;
+  border-radius: 30px;
+  background-color: var(--primary-color);
+}
+
+
+.form__input label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.8em;
+  text-align: center;
+}
+
+.form__input input {
+  padding: 5px 10px;
+  font-size: 1.4em;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: transparent;
+  border-bottom: 1px solid white;
+}
+
+.button-container {
+  grid-area: "buttons";
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-size: 1.3em;
+  outline: none;
+  border: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  background-color:white;
+}
+
+.button:hover {
+  background-color: #d3d3d3;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.stat-card {
+  width: 175px;
+  background-color: var(--secondary-color);
+  padding: 20px 30px;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.stat-card h4 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.stat-card h3 {
+  font-size: 1.8em;
+}
