@@ -1,11 +1,6 @@
-const frequencyCanvas = document
-  .getElementById("frequency-graph")
-  .getContext("2d");
-const amplitudeCanvas = document
-  .getElementById("amplitude-graph")
-  .getContext("2d");
-
 const form = document.getElementById("form");
+const sineWaveCanvas = document.getElementById("sine-wave");
+const songGraphCanvas = document.getElementById("song-graph");
 const frequency = document.getElementById("frequency");
 const amplitude = document.getElementById("amplitude");
 const song = document.getElementById("file");
@@ -13,43 +8,51 @@ let soundPlay = false;
 const wave = new p5.Oscillator();
 wave.setType("sine");
 
-new Chart(frequencyCanvas, {
-  type: "bar",
-  // The data for our dataset
-  data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    datasets: [
-      {
-        label: "Barra",
-        backgroundColor: "#307AFF",
-        borderColor: "#307AFF",
-        fontColor: "ffffff",
-        data: [0, 10, 5, 2, 20, 30, 45, 20, 10, 5, 2, 20, 30, 45],
-      },
-    ],
-  },
-});
-
-new Chart(amplitudeCanvas, {
-  type: "line",
-  data: {
-    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    datasets: [
-      {
-        label: "linea",
-        backgroundColor: "#6B67FF",
-        borderColor: "#6B67FF",
-        fontColor: "ffffff",
-        data: [0, 10, 5, 2, 20, 30, 45, 20, 10, 5, 2, 20, 30, 45],
-      },
-    ],
-  },
-});
-
-Chart.defaults.global.defaultFontColor = "#fff";
-
 const toggleSound = () => {
   soundPlay = !soundPlay;
+};
+
+let sineWaveSketch = (p) => {
+  let xspacing = 8;
+  let w;
+  let theta = 0.0;
+  let ampl = parseInt(amplitude.value);
+  let period = parseInt(frequency.value);
+  let dx;
+  let yvalues;
+
+  const calcWave = () => {
+    theta += 2;
+
+    let x = theta;
+
+    for (let i = 0; i < yvalues.length; i++) {
+      yvalues[i] = p.sin(x) * ampl;
+      x += dx;
+    }
+  };
+
+  const renderWave = () => {
+    p.noStroke();
+    p.fill(255);
+
+    for (let x = 0; x < yvalues.length; x++) {
+      p.ellipse(x * xspacing, p.height / 2 + yvalues[x], 8, 8);
+    }
+  };
+
+  p.setup = () => {
+    p.createCanvas(500, 250);
+    w = p.width + 8;
+    dx = (p.TWO_PI / period) * xspacing;
+    yvalues = new Array(p.floor(w / xspacing));
+  };
+
+  p.draw = () => {
+    p.background(0);
+    calcWave();
+    renderWave();
+  };
 };
 
 const onSubmit = (e) => {
@@ -59,9 +62,10 @@ const onSubmit = (e) => {
   let freq = parseInt(frequency.value);
   if (soundPlay) {
     wave.start();
-    wave.amp(amp);
+    wave.amp(amp, 1);
     wave.freq(freq);
     soundPlay = true;
+    new p5(sineWaveSketch, sineWaveCanvas);
   } else {
     wave.stop();
     soundPlay = false;
