@@ -1,5 +1,3 @@
-const p5 = require("p5");
-
 const frequencyCanvas = document
   .getElementById("frequency-graph")
   .getContext("2d");
@@ -8,8 +6,9 @@ const amplitudeCanvas = document
   .getContext("2d");
 
 const form = document.getElementById("form");
-const frequency = document.getElementById("frecuency");
+const frequency = document.getElementById("frequency");
 const amplitude = document.getElementById("amplitude");
+const song = document.getElementById("file");
 let soundPlay = false;
 const wave = new p5.Oscillator();
 wave.setType("sine");
@@ -18,13 +17,14 @@ new Chart(frequencyCanvas, {
   type: "bar",
   // The data for our dataset
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: [0, 10, 5, 2, 20, 30, 45],
+        label: "Barra",
+        backgroundColor: "#307AFF",
+        borderColor: "#307AFF",
+        fontColor: "ffffff",
+        data: [0, 10, 5, 2, 20, 30, 45, 20, 10, 5, 2, 20, 30, 45],
       },
     ],
   },
@@ -33,17 +33,20 @@ new Chart(frequencyCanvas, {
 new Chart(amplitudeCanvas, {
   type: "line",
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: [0, 10, 5, 2, 20, 30, 45],
+        label: "linea",
+        backgroundColor: "#6B67FF",
+        borderColor: "#6B67FF",
+        fontColor: "ffffff",
+        data: [0, 10, 5, 2, 20, 30, 45, 20, 10, 5, 2, 20, 30, 45],
       },
     ],
   },
 });
+
+Chart.defaults.global.defaultFontColor = "#fff";
 
 const toggleSound = () => {
   soundPlay = !soundPlay;
@@ -64,4 +67,5 @@ const onSubmit = (e) => {
     soundPlay = false;
   }
 };
+
 form.addEventListener("submit", onSubmit);
