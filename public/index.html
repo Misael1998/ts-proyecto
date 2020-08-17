@@ -6,6 +6,16 @@
     <link rel="shortcut icon" href="logo.png" />
     <title>Simulador de Frecuencias</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.min.js"
+      integrity="sha512-WIklPM6qPCIp6d3fSSr90j+1unQHUOoWDS4sdTiR8gxUTnyZ8S2Mr8e10sKKJ/bhJgpAa/qG068RDkg6fIlNFA=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"
+      integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA=="
+      crossorigin="anonymous"
+    ></script>
     <!-- update the version number as needed -->
     <!-- <script defer src="/__/firebase/7.17.1/firebase-app.js"></script> -->
     <!-- include only the Firebase features as you need -->
@@ -37,15 +47,11 @@
     </header>
     <main>
       <section class="chart-container">
-        <div class="graph-container">
-          <canvas id="frequency-graph"></canvas>
-        </div>
-        <div class="graph-container">
-          <canvas id="amplitude-graph"></canvas>
-        </div>
+        <div class="graph-container" id="sine-wave"></div>
+        <div class="graph-container" id="song-graph"></div>
       </section>
       <section class="info-container">
-        <form class="form" action="">
+        <form class="form" action="" id="form">
           <div class="form__input">
             <label for="frequency">Frecuencia</label>
             <input id="frequency" class="input" type="number" value="0" />
@@ -55,10 +61,10 @@
             <input id="amplitude" class="input" type="number" value="0" />
           </div>
           <div class="file__input">
-            <input type="file" name="file" id="file" class="inputfile"/>
+            <input type="file" name="file" id="file" class="inputfile" />
             <label for="file">Elegir Canción</label>
           </div>
-          
+
           <div class="button-container">
             <button class="button" type="submit">Generar</button>
             <button class="button" type="button">Limpiar</button>
