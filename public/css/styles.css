@@ -2,11 +2,10 @@
 
 /* Variables */
 :root {
-  --primary-color: #38A3A5;
-  --secondary-color: #028090;
+  --primary-color: #1F1F29;
+  --secondary-color: #2D2C3D;
   --alternative-color: #80ED99;
-  --bg-color: #C7F9CC;
-
+  --bg-color: radial-gradient(circle, rgba(66,67,88,1) 0%, rgba(40,43,52,1) 100%);
   --font-1: 'Lato', sans-serif;
 }
 
@@ -19,6 +18,7 @@
 body {
   font-family: var(--font-1);
   font-size: 15px;
+  background: var(--bg-color);
 }
 
 /*------------------Header ------------------ */
@@ -40,6 +40,11 @@ main {
 .chart-container {
   display: grid;
   gap: 20px;
+  margin: auto;
+  margin-top: 40px;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #262535;
 }
 
 .graph-container {
@@ -51,9 +56,11 @@ main {
 .info-container {
   display: grid;
   grid-template-rows: 1fr 1fr;
-  gap: 20px;
   color: white;
   align-items: center;
+  margin-top: 40px;
+  height: 488px;
+  width: 85%;
 }
 
 .form {
@@ -85,9 +92,11 @@ main {
 }
 
 .button-container {
-  grid-area: "buttons";
+  /* grid-area: "buttons"; */
   margin-top: 20px;
+  display: flex;
   justify-content: center;
+  grid-area: 3 / 1 / span 1 /span 2;
 }
 
 .button {
@@ -98,7 +107,10 @@ main {
   border: none;
   color: var(--primary-color);
   font-weight: bold;
-  background-color:white;
+  background-color: white;
+  margin: 10px;
+  margin-bottom: 0px;
+}
 }
 
 .button:hover {
@@ -109,14 +121,19 @@ main {
 .stats-container {
   display: flex;
   justify-content: space-evenly;
+  background-color: var(--primary-color);
+  padding: 19px;
+  border-radius: 25px;
+  margin-top: 10%;
 }
 
 .stat-card {
-  width: 175px;
+  width: 22%;
   background-color: var(--secondary-color);
-  padding: 20px 30px;
+  padding: 18px 70px;
   border-radius: 25px;
   text-align: center;
+  margin: auto;
 }
 
 .stat-card h4 {
@@ -127,3 +144,37 @@ main {
 .stat-card h3 {
   font-size: 1.8em;
 }
+
+/* -------------------------------boton input--------------------------------------------------- */
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: white;
+  background-color: var(--secondary-color);
+  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 14px;
+  border-radius: 50px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  background-color: white;
+  color: var(--primary-color);
+}
+
+.file__input{
+  margin-top: 15px !important;
+  grid-area: 2 / 1 / span 1 /span 2;
+}
+
+/* -------------------------------boton input--------------------------------------------------- */
