@@ -16,8 +16,8 @@ let sineWaveSketch = (p) => {
   let xspacing = 8;
   let w;
   let theta = 0.0;
-  let ampl = parseInt(amplitude.value);
-  let period = parseInt(frequency.value);
+  let ampl;
+  let period;
   let dx;
   let yvalues;
 
@@ -42,6 +42,8 @@ let sineWaveSketch = (p) => {
   };
 
   p.setup = () => {
+    ampl = parseInt(amplitude.value);
+    period = parseInt(frequency.value);
     p.createCanvas(500, 250);
     w = p.width + 8;
     dx = (p.TWO_PI / period) * xspacing;
@@ -55,6 +57,8 @@ let sineWaveSketch = (p) => {
   };
 };
 
+const soundWaveObj = new p5(sineWaveSketch, sineWaveCanvas);
+
 const onSubmit = (e) => {
   e.preventDefault();
   toggleSound();
@@ -64,8 +68,8 @@ const onSubmit = (e) => {
     wave.start();
     wave.amp(amp, 1);
     wave.freq(freq);
+    soundWaveObj.setup();
     soundPlay = true;
-    new p5(sineWaveSketch, sineWaveCanvas);
   } else {
     wave.stop();
     soundPlay = false;
