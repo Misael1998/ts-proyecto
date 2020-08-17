@@ -43,27 +43,30 @@
   </head>
   <body>
     <header>
-      <div style="display: inline-block;">
-        <h1>Simulador de Análisis de Sonido</h1>
-      </div>
-      <div id="frecgen" class="page-link">
-        <a class="dropbtn" href="frecgen.html">
-          Generador de Frecuencias &nbsp ►
-        </a>
-      </div>
+        <div style="display: inline-block;">
+          <h1>Generador de Frecuencias</h1>
+        </div>
+        <div id="soundgen" class="page-link">
+          <a class="dropbtn" href="index.html">
+            Simulador de Análisis de Sonido &nbsp ►
+          </a>
+        </div>
     </header>
     <main>
       <section class="chart-container">
-        <!-- <div class="graph-container" id="sine-wave"></div> -->
-        <div class="graph-container" id="song-graph"></div>
+        <div class="graph-container" id="sine-wave"></div>
+        <!-- <div class="graph-container" id="song-graph"></div> -->
       </section>
       <section class="info-container">
         <form class="form" action="" id="form">
-          <div class="file__input">
-            <input type="file" name="file" id="file" class="inputfile" />
-            <label for="file">Elegir Canción</label>
+          <div class="form__input">
+            <label for="frequency">Frecuencia</label>
+            <input id="frequency" class="input" type="number" value="0" />
           </div>
-
+          <div class="form__input">
+            <label for="amplitude">Amplitud</label>
+            <input id="amplitude" class="input" type="number" value="0" />
+          </div>
           <div class="button-container">
             <button class="button" type="submit">Generar</button>
             <button class="button" type="button">Limpiar</button>

@@ -65,7 +65,7 @@ main {
 
 .form {
   display: inherit;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(1,1fr);
   justify-items: center;
   gap: 20px;
   padding: 40px;
@@ -173,56 +173,27 @@ main {
 }
 
 .file__input{
-  margin-top: 15px !important;
   grid-area: 2 / 1 / span 1 /span 2;
 }
 
 /* -------------------------------boton input--------------------------------------------------- */
 
-/* ----------------------------BOTON INFO-------------------------------------- */
-.dropdown {
-  float: left;
-  overflow: hidden;
-  margin-right: 50px;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 52px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 210px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 20px;
-  margin-left: 4%;
-
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
+a{
   text-decoration: none;
-  display: block;
-  text-align: left;
-}
-.dropdown-content a:hover {
-  background-color: #ddd;
-  border-radius: 20px;
+  /* padding: 6px !important; */
+  color: white;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+a:hover{
+  text-decoration: none;
+  background-color: white;
+  color: #262535;
+  padding: 6px;
+  border-radius: 50px;
 }
-/* ---------------------------------------------------------------- */
+
+.page-link {
+  float: right; 
+  margin-top: 8px; 
+  margin-right: 6%;
+}
