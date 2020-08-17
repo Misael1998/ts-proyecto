@@ -22,7 +22,7 @@ let sineWaveSketch = (p) => {
   let yvalues;
 
   const calcWave = () => {
-    theta += 2;
+    theta += 0.03;
 
     let x = theta;
 
