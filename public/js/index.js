@@ -31,8 +31,9 @@ let sineWaveSketch = (p) => {
   };
 
   const renderWave = () => {
+    let c = p.color(48, 122, 255);
     p.noStroke();
-    p.fill(255);
+    p.fill(c);
 
     for (let x = 0; x < yvalues.length; x++) {
       p.ellipse(x * xspacing, p.height / 2 + yvalues[x], 8, 8);
@@ -68,6 +69,8 @@ const onSubmit = (e) => {
     wave.freq(freq);
     soundWaveObj.setup();
     soundPlay = true;
+    document.getElementById("amp-val").innerHTML = amplitude.value;
+    document.getElementById("frec-val").innerHTML = frequency.value;
   } else {
     wave.stop();
     soundPlay = false;
@@ -75,3 +78,12 @@ const onSubmit = (e) => {
 };
 
 form.addEventListener("submit", onSubmit);
+
+function limpiar(){
+  document.getElementById("amp-val").innerHTML = " - ";
+  document.getElementById("frec-val").innerHTML = " - ";
+  wave.stop();
+  soundPlay = false;
+  soundWaveObj.erase();
+  // soundWaveObj.remove();
+}

@@ -53,7 +53,7 @@
       </div>
     </header>
     <main>
-      <section class="chart-container">
+      <section class="chart-container" id="contenedor">
         <div class="graph-container" id="sine-wave"></div>
         <!-- <div class="graph-container" id="song-graph"></div> -->
       </section>
@@ -69,17 +69,19 @@
           </div>
           <div class="button-container">
             <button class="button" type="submit">Generar</button>
-            <button class="button" type="button">Limpiar</button>
+            <button class="button" type="button" onclick="limpiar()">Limpiar</button>
           </div>
         </form>
         <section class="stats-container">
           <div class="stat-card">
             <h4>Amplitud</h4>
-            <h3>30Pa</h3>
+            <h3 id="amp-val"> - </h3>
+            <p>m</p>
           </div>
           <div class="stat-card">
             <h4>Frecuencia</h4>
-            <h3>440Hz</h3>
+            <h3 id="frec-val"> - </h3>
+            <p>Hrz</p>
           </div>
         </section>
       </section>

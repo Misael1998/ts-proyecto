@@ -143,6 +143,13 @@ main {
 
 .stat-card h3 {
   font-size: 1.8em;
+  display: inline;
+}
+
+.stat-card p {
+  font-size: 1.5em;
+  font-weight: 900;
+  display: inline;
 }
 
 /* -------------------------------boton input--------------------------------------------------- */
