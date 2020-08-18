@@ -82,6 +82,8 @@ form.addEventListener("submit", onSubmit);
 function limpiar(){
   document.getElementById("amp-val").innerHTML = " - ";
   document.getElementById("frec-val").innerHTML = " - ";
+  frequency.value = "none";
+  amplitude.value = "none";
   wave.stop();
   soundPlay = false;
   soundWaveObj.erase();
