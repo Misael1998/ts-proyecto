@@ -24,21 +24,16 @@ let songGraphSketch = (p) => {
   };
 
   p.draw = () => {
-    p.background(255);
+    p.background(0);
     if (loadedSong) {
-      let spectrum = fft.waveform();
-      p.noStroke();
+      let spectrum = fft.analyze();
 
-      p.noFill();
-      p.beginShape();
-      p.stroke(20);
+      p.stroke(255);
       for (let i = 0; i < spectrum.length; i++) {
         let amp = spectrum[i];
-        let x = p.map(i, 0, spectrum.length, p.width);
-        let y = p.map(amp, -1, 1, 0, p.height);
-        p.vertex(x, y);
+        let y = p.map(amp, 0, 255, p.height, 0);
+        p.line(i, p.height, i, y);
       }
-      p.endShape();
     }
   };
 };
