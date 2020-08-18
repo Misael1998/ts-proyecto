@@ -4,3 +4,4 @@ Simulador para visualizar los elementos del sonido mediante frecuencia y amplitu
 
 **Preview**
 <img src="./design/simulador.png">
+<img src="./design/Frecuencia.png">
