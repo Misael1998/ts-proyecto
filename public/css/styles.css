@@ -65,7 +65,7 @@ main {
 
 .form {
   display: inherit;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(1,1fr);
   justify-items: center;
   gap: 20px;
   padding: 40px;
@@ -111,7 +111,7 @@ main {
   margin: 10px;
   margin-bottom: 0px;
 }
-}
+
 
 .button:hover {
   background-color: var(--secondary-color);
@@ -173,8 +173,27 @@ main {
 }
 
 .file__input{
-  margin-top: 15px !important;
   grid-area: 2 / 1 / span 1 /span 2;
 }
 
 /* -------------------------------boton input--------------------------------------------------- */
+
+a{
+  text-decoration: none;
+  /* padding: 6px !important; */
+  color: white;
+}
+
+a:hover{
+  text-decoration: none;
+  background-color: white;
+  color: #262535;
+  padding: 6px;
+  border-radius: 50px;
+}
+
+.page-link {
+  float: right; 
+  margin-top: 8px; 
+  margin-right: 6%;
+}

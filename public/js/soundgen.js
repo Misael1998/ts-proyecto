@@ -3,6 +3,7 @@ const sineWaveCanvas = document.getElementById("sine-wave");
 const songGraphCanvas = document.getElementById("song-graph");
 const frequency = document.getElementById("frequency");
 const amplitude = document.getElementById("amplitude");
+let songCanvas;
 const song = document.getElementById("file");
 let soundPlay = false;
 const wave = new p5.Oscillator();
@@ -57,11 +58,37 @@ let sineWaveSketch = (p) => {
   };
 };
 
-const soundWaveObj = new p5(sineWaveSketch, sineWaveCanvas);
+let songGraphSketch = (obj) => {
+  return (p) => {
+    let loadedSong;
+    p.preload = () => {
+      loadedSong = p.loadSound(obj);
+    };
+
+    p.setup = () => {
+      p.createCanvas(500, 500);
+      loadedSong.setVolume(1);
+      loadedSong.play();
+    };
+
+    p.draw = () => {
+      p.background(0);
+    };
+  };
+};
+
+/* const soundWaveObj = new p5(sineWaveSketch, sineWaveCanvas); */
 
 const onSubmit = (e) => {
   e.preventDefault();
-  toggleSound();
+  console.log(song.files);
+  if (!song.files) return;
+
+  const urlObj = URL.createObjectURL(song.files[0]);
+  let graph = songGraphSketch(urlObj);
+  const soundGraphObj = new p5(graph, songGraphCanvas);
+
+  /* toggleSound();
   let amp = parseInt(amplitude.value);
   let freq = parseInt(frequency.value);
   if (soundPlay) {
@@ -73,7 +100,7 @@ const onSubmit = (e) => {
   } else {
     wave.stop();
     soundPlay = false;
-  }
+  } */
 };
 
 form.addEventListener("submit", onSubmit);
