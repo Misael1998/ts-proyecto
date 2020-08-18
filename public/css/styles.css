@@ -111,7 +111,7 @@ main {
   margin: 10px;
   margin-bottom: 0px;
 }
-}
+
 
 .button:hover {
   background-color: var(--secondary-color);
