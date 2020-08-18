@@ -1,9 +1,7 @@
 const form = document.getElementById("form");
 const sineWaveCanvas = document.getElementById("sine-wave");
-const songGraphCanvas = document.getElementById("song-graph");
 const frequency = document.getElementById("frequency");
 const amplitude = document.getElementById("amplitude");
-const song = document.getElementById("file");
 let soundPlay = false;
 const wave = new p5.Oscillator();
 wave.setType("sine");
