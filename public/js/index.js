@@ -1,10 +1,18 @@
 const form = document.getElementById("form");
+const generateButton = document.getElementById("generate-btn");
 const sineWaveCanvas = document.getElementById("sine-wave");
 const frequency = document.getElementById("frequency");
 const amplitude = document.getElementById("amplitude");
 let soundPlay = false;
-const wave = new p5.Oscillator();
-wave.setType("sine");
+let wave;
+
+function setWave() {
+  wave = new p5.Oscillator();
+  wave.setType("sine");
+}
+
+//Inicializa el objeto wave
+setWave();
 
 const toggleSound = () => {
   soundPlay = !soundPlay;
@@ -51,18 +59,27 @@ let sineWaveSketch = (p) => {
 
   p.draw = () => {
     p.background(0);
+    p.clear();
     calcWave();
     renderWave();
   };
 };
 
-const soundWaveObj = new p5(sineWaveSketch, sineWaveCanvas);
+let soundWaveObj;
 
 const onSubmit = (e) => {
   e.preventDefault();
   toggleSound();
   let amp = parseInt(amplitude.value);
   let freq = parseInt(frequency.value);
+
+  if (amp === 0 || freq === 0) {
+    alert("Debe ingresar valores de frecuencia y amplitud");
+    return;
+  }
+
+  soundWaveObj = new p5(sineWaveSketch, sineWaveCanvas);
+
   if (soundPlay) {
     wave.start();
     wave.amp(amp, 1);
@@ -75,17 +92,20 @@ const onSubmit = (e) => {
     wave.stop();
     soundPlay = false;
   }
+  generateButton.disabled = true;
 };
 
 form.addEventListener("submit", onSubmit);
 
-function limpiar(){
+function limpiar() {
   document.getElementById("amp-val").innerHTML = " - ";
   document.getElementById("frec-val").innerHTML = " - ";
-  frequency.value = "none";
-  amplitude.value = "none";
+  frequency.value = "0";
+  amplitude.value = "0";
   wave.stop();
   soundPlay = false;
-  soundWaveObj.erase();
-  // soundWaveObj.remove();
+  //Remueve el Canvas y reinicia el oscilador
+  soundWaveObj.remove();
+  setWave();
+  generateButton.disabled = false;
 }

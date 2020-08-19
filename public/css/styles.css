@@ -118,6 +118,11 @@ main {
   color: white;
 }
 
+.button:disabled {
+  background-color: #201f2c;
+  color: gray;
+}
+
 .stats-container {
   display: flex;
   justify-content: space-evenly;
@@ -129,6 +134,15 @@ main {
 
 .stat-card {
   width: 22%;
+  background-color: var(--secondary-color);
+  padding: 18px 70px;
+  border-radius: 25px;
+  text-align: center;
+  margin: auto;
+}
+
+.stat-card-xl {
+  width: 44%;
   background-color: var(--secondary-color);
   padding: 18px 70px;
   border-radius: 25px;

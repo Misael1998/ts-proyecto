@@ -1,6 +1,7 @@
 const songGraphCanvas = document.getElementById("song-graph");
 const playPause = document.getElementById("play-pause");
 const song = document.getElementById("file");
+const songName = document.getElementById("song-name");
 let songCanvas;
 let loadedSong;
 
@@ -11,6 +12,7 @@ let songGraphSketch = (p) => {
   p.preload = () => {
     try {
       urlObj = URL.createObjectURL(song.files[0]);
+      songName.textContent = song.files[0].name;
       loadedSong = p.loadSound(urlObj);
     } catch (err) {}
   };
