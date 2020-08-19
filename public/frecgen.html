@@ -12,8 +12,8 @@
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"
-      integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.js"
+      integrity="sha512-KxzVm+IqxNNq0+SzT/zzd5PHxY4LPrN+v5gZJ6+JKqjeU3Cr4y/djAg5eNlKDWurn1SeKZpql/yeOMWblMSzOg=="
       crossorigin="anonymous"
     ></script>
     <!-- update the version number as needed -->
@@ -43,17 +43,17 @@
   </head>
   <body>
     <header>
-        <div style="display: inline-block;">
-          <h1>Generador de Frecuencias</h1>
-        </div>
-        <div id="soundgen" class="page-link">
-          <a class="dropbtn" href="index.html">
-            Simulador de Análisis de Sonido &nbsp ►
-          </a>
-        </div>
+      <div style="display: inline-block;">
+        <h1>Generador de Frecuencias</h1>
+      </div>
+      <div id="soundgen" class="page-link">
+        <a class="dropbtn" href="index.html">
+          Simulador de Análisis de Sonido &nbsp ►
+        </a>
+      </div>
     </header>
     <main>
-      <section class="chart-container">
+      <section class="chart-container" id="contenedor">
         <div class="graph-container" id="sine-wave"></div>
         <!-- <div class="graph-container" id="song-graph"></div> -->
       </section>
@@ -68,18 +68,24 @@
             <input id="amplitude" class="input" type="number" value="0" />
           </div>
           <div class="button-container">
-            <button class="button" type="submit">Generar</button>
-            <button class="button" type="button">Limpiar</button>
+            <button class="button" id="generate-btn" type="submit">
+              Generar
+            </button>
+            <button class="button" type="button" onclick="limpiar()">
+              Limpiar
+            </button>
           </div>
         </form>
         <section class="stats-container">
           <div class="stat-card">
-            <h4>Amplitud</h4>
-            <h3>30Pa</h3>
+            <h4>Frecuencia</h4>
+            <h3 id="frec-val">-</h3>
+            <p>Hrz</p>
           </div>
           <div class="stat-card">
-            <h4>Frecuencia</h4>
-            <h3>440Hz</h3>
+            <h4>Amplitud</h4>
+            <h3 id="amp-val">-</h3>
+            <p>m</p>
           </div>
         </section>
       </section>

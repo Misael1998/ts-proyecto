@@ -2,10 +2,10 @@
 
 /* Variables */
 :root {
-  --primary-color: #1F1F29;
-  --secondary-color: #2D2C3D;
+  --primary-color: #121218;
+  --secondary-color: #201f2c;
   --alternative-color: #80ED99;
-  --bg-color: radial-gradient(circle, rgba(66,67,88,1) 0%, rgba(40,43,52,1) 100%);
+  --bg-color: radial-gradient(circle, rgb(46 47 66) 0%, rgba(40,43,52,1) 100%);
   --font-1: 'Lato', sans-serif;
 }
 
@@ -44,7 +44,7 @@ main {
   margin-top: 40px;
   padding: 20px;
   border-radius: 25px;
-  background-color: #262535;
+  background-color: #12121a ;
 }
 
 .graph-container {
@@ -118,6 +118,11 @@ main {
   color: white;
 }
 
+.button:disabled {
+  background-color: #201f2c;
+  color: gray;
+}
+
 .stats-container {
   display: flex;
   justify-content: space-evenly;
@@ -136,6 +141,15 @@ main {
   margin: auto;
 }
 
+.stat-card-xl {
+  width: 44%;
+  background-color: var(--secondary-color);
+  padding: 18px 70px;
+  border-radius: 25px;
+  text-align: center;
+  margin: auto;
+}
+
 .stat-card h4 {
   font-size: 1.5em;
   margin-bottom: 10px;
@@ -143,6 +157,13 @@ main {
 
 .stat-card h3 {
   font-size: 1.8em;
+  display: inline;
+}
+
+.stat-card p {
+  font-size: 1.5em;
+  font-weight: 900;
+  display: inline;
 }
 
 /* -------------------------------boton input--------------------------------------------------- */

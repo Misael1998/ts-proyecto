@@ -12,8 +12,8 @@
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js"
-      integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.js"
+      integrity="sha512-KxzVm+IqxNNq0+SzT/zzd5PHxY4LPrN+v5gZJ6+JKqjeU3Cr4y/djAg5eNlKDWurn1SeKZpql/yeOMWblMSzOg=="
       crossorigin="anonymous"
     ></script>
     <!-- update the version number as needed -->
@@ -54,7 +54,6 @@
     </header>
     <main>
       <section class="chart-container">
-        <!-- <div class="graph-container" id="sine-wave"></div> -->
         <div class="graph-container" id="song-graph"></div>
       </section>
       <section class="info-container">
@@ -65,24 +64,21 @@
           </div>
 
           <div class="button-container">
-            <button class="button" type="submit">Generar</button>
-            <button class="button" type="button">Limpiar</button>
+            <button class="button" type="submit">Cargar</button>
+            <button class="button" id="play-pause" type="button">
+              Play/Pause
+            </button>
           </div>
         </form>
         <section class="stats-container">
-          <div class="stat-card">
-            <h4>Amplitud</h4>
-            <h3>30Pa</h3>
-          </div>
-          <div class="stat-card">
-            <h4>Frecuencia</h4>
-            <h3>440Hz</h3>
+          <div class="stat-card-xl">
+            <h4>Nombre de la canción</h4>
+            <h3 id="song-name">- </h3>
           </div>
         </section>
       </section>
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
     <script src="js/soundgen.js"></script>
     <!--  <script>
       document.addEventListener('DOMContentLoaded', function() {
