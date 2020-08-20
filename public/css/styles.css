@@ -73,6 +73,9 @@ main {
   background-color: var(--primary-color);
 }
 
+.form__input{
+  width: 273px;
+}
 
 .form__input label {
   display: block;
@@ -89,6 +92,8 @@ main {
   color: white;
   background-color: transparent;
   border-bottom: 1px solid white;
+  text-align: center;
+  width: 235px;
 }
 
 .button-container {
@@ -218,3 +223,22 @@ a:hover{
   margin-top: 8px; 
   margin-right: 6%;
 }
+
+/* -------------------------------------------------DROP DOWN---------------------------------------------------- */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  margin-right: 50px;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 52px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
