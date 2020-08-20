@@ -28,7 +28,7 @@ let songGraphSketch = (p) => {
   p.draw = () => {
     p.background(0);
     if (loadedSong) {
-      let spectrum = fft.analyze();
+      let spectrum = fft.analyze(256);
       let c = p.color(107, 103, 255);
       // p.stroke(255);
       p.noStroke();
@@ -36,7 +36,7 @@ let songGraphSketch = (p) => {
         let amp = spectrum[i];
         let y = p.map(amp, 0, 255, p.height, 0);
         p.fill(c);
-        p.rect(i*5, y, 5, p.height-y);
+        p.rect(i * 5, y, 5, p.height - y);
       }
     }
   };
