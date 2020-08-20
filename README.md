@@ -7,8 +7,8 @@ Simulador para visualizar los elementos del sonido mediante frecuencia y amplitu
 **URL:** https://ts-sound-visualization.web.app/
 
 **Imagenes:**
-<img src="./design/simulador.png">
-<img src="./design/Frecuencia.png">
+<img src="./design/sonido.png">
+<img src="./design/frecuencias.png">
 
 ****
 
