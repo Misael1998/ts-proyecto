@@ -19,7 +19,7 @@ const toggleSound = () => {
 };
 
 let sineWaveSketch = (p) => {
-  let xspacing = 8;
+  let xspacing = 2;
   let w;
   let theta = 0.0;
   let ampl;
@@ -44,15 +44,15 @@ let sineWaveSketch = (p) => {
     p.fill(c);
 
     for (let x = 0; x < yvalues.length; x++) {
-      p.ellipse(x * xspacing, p.height / 2 + yvalues[x], 8, 8);
+      p.ellipse(x * xspacing, p.height / 2 + yvalues[x], 2, 2);
     }
   };
 
   p.setup = () => {
     ampl = parseInt(amplitude.value);
-    period = parseInt(frequency.value);
+    period = 2200 - parseInt(frequency.value);
     p.createCanvas(500, 250);
-    w = p.width + 8;
+    w = p.width + 2;
     dx = (p.TWO_PI / period) * xspacing;
     yvalues = new Array(p.floor(w / xspacing));
   };
