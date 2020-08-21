@@ -50,10 +50,10 @@ let sineWaveSketch = (p) => {
 
   p.setup = () => {
     ampl = parseInt(amplitude.value);
-    period = 2200 - parseInt(frequency.value);
+    period = parseInt(frequency.value);
     p.createCanvas(500, 250);
     w = p.width + 2;
-    dx = (p.TWO_PI / period) * xspacing;
+    dx = ((p.TWO_PI * period) / 100000) * xspacing;
     yvalues = new Array(p.floor(w / xspacing));
   };
 
